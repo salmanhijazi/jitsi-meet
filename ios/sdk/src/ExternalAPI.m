@@ -26,6 +26,7 @@ static NSString * const retrieveParticipantsInfoAction = @"org.jitsi.meet.RETRIE
 static NSString * const openChatAction = @"org.jitsi.meet.OPEN_CHAT";
 static NSString * const closeChatAction = @"org.jitsi.meet.CLOSE_CHAT";
 static NSString * const sendChatMessageAction = @"org.jitsi.meet.SEND_CHAT_MESSAGE";
+static NSString * const toggleFullscreenAction = @"org.jitsi.meet.TOGGLE_FULLSCREEN";
 
 @implementation ExternalAPI
 
@@ -47,7 +48,8 @@ RCT_EXPORT_MODULE();
         @"RETRIEVE_PARTICIPANTS_INFO": retrieveParticipantsInfoAction,
         @"OPEN_CHAT": openChatAction,
         @"CLOSE_CHAT": closeChatAction,
-        @"SEND_CHAT_MESSAGE": sendChatMessageAction
+        @"SEND_CHAT_MESSAGE": sendChatMessageAction,
+        @"TOGGLE_FULLSCREEN": toggleFullscreenAction,
     };
 };
 
@@ -70,7 +72,8 @@ RCT_EXPORT_MODULE();
               retrieveParticipantsInfoAction,
               openChatAction,
               closeChatAction,
-              sendChatMessageAction
+              sendChatMessageAction,
+              toggleFullscreenAction
     ];
 }
 
@@ -99,7 +102,7 @@ RCT_EXPORT_METHOD(sendEvent:(NSString *)name
     if (!delegate) {
         return;
     }
-    
+
     if ([name isEqual: @"PARTICIPANTS_INFO_RETRIEVED"]) {
         [self onParticipantsInfoRetrieved: data];
         return;
@@ -115,7 +118,7 @@ RCT_EXPORT_METHOD(sendEvent:(NSString *)name
 - (void) onParticipantsInfoRetrieved:(NSDictionary *)data {
     NSArray *participantsInfoArray = [data objectForKey:@"participantsInfo"];
     NSString *completionHandlerId = [data objectForKey:@"requestId"];
-    
+
     void (^completionHandler)(NSArray*) = [participantInfoCompletionHandlers objectForKey:completionHandlerId];
     completionHandler(participantsInfoArray);
     [participantInfoCompletionHandlers removeObjectForKey:completionHandlerId];
@@ -157,7 +160,7 @@ RCT_EXPORT_METHOD(sendEvent:(NSString *)name
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     data[@"to"] = to;
     data[@"message"] = message;
-    
+
     [self sendEventWithName:sendEndpointTextMessageAction body:data];
 }
 
@@ -168,16 +171,16 @@ RCT_EXPORT_METHOD(sendEvent:(NSString *)name
 - (void)retrieveParticipantsInfo:(void (^)(NSArray*))completionHandler {
     NSString *completionHandlerId = [[NSUUID UUID] UUIDString];
     NSDictionary *data = @{ @"requestId": completionHandlerId};
-    
+
     [participantInfoCompletionHandlers setObject:[completionHandler copy] forKey:completionHandlerId];
-    
+
     [self sendEventWithName:retrieveParticipantsInfoAction body:data];
 }
 
 - (void)openChat:(NSString*)to {
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     data[@"to"] = to;
-    
+
     [self sendEventWithName:openChatAction body:data];
 }
 
@@ -189,8 +192,14 @@ RCT_EXPORT_METHOD(sendEvent:(NSString *)name
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     data[@"to"] = to;
     data[@"message"] = message;
-    
+
     [self sendEventWithName:sendChatMessageAction body:data];
+}
+
+- (void)toggleFullscreen:(BOOL)enabled {
+    NSDictionary *data = @{ @"enabled": [NSNumber numberWithBool:enabled]};
+
+    [self sendEventWithName:toggleFullscreenAction body:data];
 }
 
 @end

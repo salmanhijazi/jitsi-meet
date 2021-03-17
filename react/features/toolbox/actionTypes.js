@@ -116,3 +116,14 @@ export const SET_TOOLBOX_VISIBLE = 'SET_TOOLBOX_VISIBLE';
  * }
  */
 export const TOGGLE_TOOLBOX_VISIBLE = 'TOGGLE_TOOLBOX_VISIBLE';
+
+/**
+ * The type of (redux) action which requests fullscreen mode be entered or
+ * exited for native apps.
+ *
+ * {
+ *     type: TOGGLE_FULLSCREEN,
+ *     enabled: boolean
+ * }
+ */
+export const TOGGLE_FULLSCREEN = 'TOGGLE_FULLSCREEN';

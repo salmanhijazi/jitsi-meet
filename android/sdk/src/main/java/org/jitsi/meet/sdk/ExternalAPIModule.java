@@ -85,6 +85,7 @@ class ExternalAPIModule
         constants.put("OPEN_CHAT", BroadcastAction.Type.OPEN_CHAT.getAction());
         constants.put("CLOSE_CHAT", BroadcastAction.Type.CLOSE_CHAT.getAction());
         constants.put("SEND_CHAT_MESSAGE", BroadcastAction.Type.SEND_CHAT_MESSAGE.getAction());
+        constants.put("TOGGLE_FULLSCREEN", BroadcastAction.Type.TOGGLE_FULLSCREEN.getAction());
 
         return constants;
     }

@@ -131,6 +131,10 @@
   NSLog(@"%@%@", @"Chat toggled: ", data);
 }
 
+- (void)fullscreenToggled:(NSDictionary *)data {
+  NSLog(@"%@%@", @"Fullscreen toggled: ", data);
+}
+
 #pragma mark - Helpers
 
 - (void)terminate {

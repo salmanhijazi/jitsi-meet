@@ -66,7 +66,8 @@ public class BroadcastAction {
         RETRIEVE_PARTICIPANTS_INFO("org.jitsi.meet.RETRIEVE_PARTICIPANTS_INFO"),
         OPEN_CHAT("org.jitsi.meet.OPEN_CHAT"),
         CLOSE_CHAT("org.jitsi.meet.CLOSE_CHAT"),
-        SEND_CHAT_MESSAGE("org.jitsi.meet.SEND_CHAT_MESSAGE");
+        SEND_CHAT_MESSAGE("org.jitsi.meet.SEND_CHAT_MESSAGE"),
+        TOGGLE_FULLSCREEN("org.jitsi.meet.TOGGLE_FULLSCREEN");
 
         private final String action;
 

@@ -9,7 +9,8 @@ import {
     SET_TOOLBOX_TIMEOUT,
     SET_TOOLBOX_TIMEOUT_MS,
     SET_TOOLBOX_VISIBLE,
-    TOGGLE_TOOLBOX_VISIBLE
+    TOGGLE_TOOLBOX_VISIBLE,
+    TOGGLE_FULLSCREEN,
 } from './actionTypes';
 
 
@@ -156,5 +157,21 @@ export function setToolboxVisible(visible: boolean): Object {
 export function toggleToolboxVisible() {
     return {
         type: TOGGLE_TOOLBOX_VISIBLE
+    };
+}
+
+/**
+ * Signals a request to enter or exit full screen mode.
+ *
+ * @param {boolean} fullScreen - True to enter full screen mode, false to exit.
+ * @returns {{
+ *     type: TOGGLE_FULLSCREEN,
+ *     enabled: boolean
+ * }}
+ */
+export function toggleFullscreen(enabled: boolean) {
+    return {
+        type: TOGGLE_FULLSCREEN,
+        enabled
     };
 }

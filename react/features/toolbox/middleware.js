@@ -5,7 +5,8 @@ import { MiddlewareRegistry } from '../base/redux';
 import {
     CLEAR_TOOLBOX_TIMEOUT,
     SET_TOOLBOX_TIMEOUT,
-    SET_FULL_SCREEN
+    SET_FULL_SCREEN,
+    TOGGLE_FULLSCREEN
 } from './actionTypes';
 
 declare var APP: Object;
@@ -28,6 +29,9 @@ MiddlewareRegistry.register(store => next => action => {
 
     case SET_FULL_SCREEN:
         return _setFullScreen(next, action);
+
+    case TOGGLE_FULLSCREEN:
+        return next(action);
 
     case SET_TOOLBOX_TIMEOUT: {
         const { timeoutID } = store.getState()['features/toolbox'];

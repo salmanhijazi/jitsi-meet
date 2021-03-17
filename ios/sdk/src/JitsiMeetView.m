@@ -155,6 +155,11 @@ static void initializeViewsMap() {
     [externalAPI sendChatMessage:message :to];
 }
 
+- (void)toggleFullscreen:(BOOL)enabled {
+    ExternalAPI *externalAPI = [[JitsiMeet sharedInstance] getExternalAPI];
+    [externalAPI toggleFullscreen:enabled];
+}
+
 #pragma mark Private methods
 
 /**
