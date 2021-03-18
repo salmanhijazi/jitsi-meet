@@ -52,7 +52,7 @@ public interface JitsiMeetViewListener {
     /**
      * Called when the user toggles fullscreen.
      *
-     * @param data Map with a "url" key with the conference URL.
+     * @param data Map with a "fullscreen" key with the boolean state.
      */
-    void onFullscreenToggled(Map<String, Object> data);
+    void onFullscreenToggled(Map<String, Boolean> data);
 }
