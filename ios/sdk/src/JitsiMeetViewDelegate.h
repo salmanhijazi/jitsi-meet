@@ -107,7 +107,7 @@
 /**
  * Called when a participant toggles fullscreen.
  *
- * The `data` dictionary contains a `enabled` key with state of the fullscreenEnabled for the localParticipant
+ * The `data` dictionary contains a `fullscreen` key with state of the fullscreenEnabled for the localParticipant
  */
 - (void)fullscreenToggled:(NSDictionary *)data;
 

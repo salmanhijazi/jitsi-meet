@@ -36,6 +36,7 @@ import { openChat } from '../../chat/actions';
 import { sendMessage, setPrivateMessageRecipient, closeChat } from '../../chat/actions.any';
 import { muteLocal } from '../../remote-video-menu/actions';
 import { ENTER_PICTURE_IN_PICTURE } from '../picture-in-picture';
+import { TOGGLE_FULLSCREEN } from '../../toolbox/actionTypes';
 
 import { setParticipantsWithScreenShare } from './actions';
 import { sendEvent } from './functions';
@@ -65,10 +66,16 @@ const CONFERENCE_TERMINATED = 'CONFERENCE_TERMINATED';
 const ENDPOINT_TEXT_MESSAGE_RECEIVED = 'ENDPOINT_TEXT_MESSAGE_RECEIVED';
 
 /**
- * Event which will be emitted on the native side to indicate a participant togggles
+ * Event which will be emitted on the native side to indicate a participant toggles
  * the screen share.
  */
 const SCREEN_SHARE_TOGGLED = 'SCREEN_SHARE_TOGGLED';
+
+/**
+ * Event which will be emitted on the native side to indicate a participant toggles
+ * the fullscreen.
+ */
+const FULLSCREEN_TOGGLED = 'FULLSCREEN_TOGGLED';
 
 /**
  * Event which will be emitted on the native side with the participant info array.
@@ -207,6 +214,15 @@ MiddlewareRegistry.register(store => next => action => {
             'AUDIO_MUTED_CHANGED',
             /* data */ {
                 muted: action.muted
+            });
+        break;
+
+    case TOGGLE_FULLSCREEN:
+        sendEvent(
+            store,
+            FULLSCREEN_TOGGLED,
+            /* data */ {
+                fullscreen: action.fullscreen
             });
         break;
     }
