@@ -198,8 +198,8 @@ public class JitsiMeetActivity extends FragmentActivity
     }
 
     protected void onFullscreenToggled(HashMap<String, Object> extraData) {
-            JitsiMeetLogger.i("Fullscreen toggled: " + extraData);
-        }
+        JitsiMeetLogger.i("Fullscreen toggled");
+    }
 
     protected void onParticipantJoined(HashMap<String, Object> extraData) {
         try {
