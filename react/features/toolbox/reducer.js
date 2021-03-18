@@ -147,7 +147,7 @@ ReducerRegistry.register(
         case TOGGLE_FULLSCREEN:
             return {
                 ...state,
-                fullScreen: action.fullScreen
+                fullscreen: action.fullscreen
             };
 
         case SET_OVERFLOW_DRAWER:

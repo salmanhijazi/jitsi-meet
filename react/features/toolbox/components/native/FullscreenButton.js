@@ -90,7 +90,7 @@ function _mapStateToProps(state): Object {
     const { fullscreen } = state['features/toolbox'];
 
     return {
-        _fullScreen: fullscreen,
+        _fullscreen: fullscreen,
         visible: true
     };
 }
