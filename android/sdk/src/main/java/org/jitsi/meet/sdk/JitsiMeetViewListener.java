@@ -54,5 +54,5 @@ public interface JitsiMeetViewListener {
      *
      * @param data Map with a "url" key with the conference URL.
      */
-    void onToggleFullscreen(Map<String, Object> data);
+    void onFullscreenToggled(Map<String, Object> data);
 }

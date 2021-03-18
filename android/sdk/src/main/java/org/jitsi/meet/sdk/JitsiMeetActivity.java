@@ -197,7 +197,7 @@ public class JitsiMeetActivity extends FragmentActivity
         JitsiMeetLogger.i("Conference will join: " + extraData);
     }
 
-    protected void onToggleFullscreen(HashMap<String, Object> extraData) {
+    protected void onFullscreenToggled(HashMap<String, Object> extraData) {
             JitsiMeetLogger.i("Fullscreen toggled: " + extraData);
         }
 
@@ -294,6 +294,9 @@ public class JitsiMeetActivity extends FragmentActivity
                     break;
                 case PARTICIPANT_JOINED:
                     onParticipantJoined(event.getData());
+                    break;
+                case FULLSCREEN_TOGGLED:
+                    onFullscreenToggled(event.getData());
                     break;
                 case PARTICIPANT_LEFT:
                     onParticipantLeft(event.getData());
