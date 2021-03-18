@@ -187,11 +187,6 @@ public class MainActivity extends JitsiMeetActivity {
         Log.d(TAG, "Conference terminated: " + extraData);
     }
 
-    @Override
-        protected void onToggleFullscreen(HashMap<String, Object> extraData) {
-            Log.d(TAG, "Fullscreen Toggled: " + extraData);
-        }
-
     // Activity lifecycle method overrides
     //
 
