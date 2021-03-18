@@ -20,7 +20,7 @@ export default {
      * current video playing time.
      */
     UPDATE_SHARED_VIDEO: 'UI.update_shared_video',
-    TOGGLE_FULLSCREEN: 'UI.toogle_fullscreen',
+    TOGGLE_FULLSCREEN: 'UI.toggle_fullscreen',
     FULLSCREEN_TOGGLED: 'UI.fullscreen_toggled',
     AUTH_CLICKED: 'UI.auth_clicked',
 

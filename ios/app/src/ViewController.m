@@ -132,7 +132,7 @@
 }
 
 - (void)fullscreenToggled:(NSDictionary *)data {
-  NSLog(@"%@%@", @"Fullscreen toggled: ", data);
+  NSLog(@"%@%@", @"Fullscreen toggled: ", data["@fullscreen"]);
 }
 
 #pragma mark - Helpers

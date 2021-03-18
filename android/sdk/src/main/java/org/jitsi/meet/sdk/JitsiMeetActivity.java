@@ -197,6 +197,10 @@ public class JitsiMeetActivity extends FragmentActivity
         JitsiMeetLogger.i("Conference will join: " + extraData);
     }
 
+    protected void onToggleFullscreen(HashMap<String, Object> extraData) {
+            JitsiMeetLogger.i("Fullscreen toggled: " + extraData);
+        }
+
     protected void onParticipantJoined(HashMap<String, Object> extraData) {
         try {
             JitsiMeetLogger.i("Participant joined: ", extraData);

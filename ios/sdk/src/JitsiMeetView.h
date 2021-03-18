@@ -44,6 +44,6 @@
 - (void)openChat:(NSString * _Nullable)to;
 - (void)closeChat;
 - (void)sendChatMessage:(NSString * _Nonnull)message :(NSString * _Nullable)to;
-- (void)toggleFullscreen:(BOOL)enabled;
+- (void)toggleFullscreen:(BOOL)fullscreen;
 
 @end

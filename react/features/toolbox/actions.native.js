@@ -166,12 +166,12 @@ export function toggleToolboxVisible() {
  * @param {boolean} fullScreen - True to enter full screen mode, false to exit.
  * @returns {{
  *     type: TOGGLE_FULLSCREEN,
- *     enabled: boolean
+ *     fullScreen: boolean
  * }}
  */
-export function toggleFullscreen(enabled: boolean) {
+export function toggleFullscreen(fullScreen: boolean) {
     return {
         type: TOGGLE_FULLSCREEN,
-        enabled
+        fullScreen
     };
 }

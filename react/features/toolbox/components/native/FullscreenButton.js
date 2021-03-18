@@ -11,6 +11,9 @@ import { IconExitFullScreen } from '../../../base/icons';
 import { toggleFullscreen } from '../../actions.native';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
+import UIEvents from "../../../../../service/UI/UIEvents";
+
+declare var APP: Object;
 
 /**
  * The type of the React {@code Component} props of {@link RaiseHandButton}.
@@ -65,9 +68,14 @@ class FullscreenButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _toggleFullscreen() {
-        const enabled = !this.props._fullscreen;
+        const enable = !this.props._fullscreen;
 
-        this.props.dispatch(toggleFullscreen(enabled));
+        sendAnalytics(createToolbarEvent('toggle.fullscreen', { enable }));
+
+        this.props.dispatch(toggleFullscreen(enable));
+
+        typeof APP === 'undefined'
+            || APP.UI.emitEvent(UIEvents.TOGGLE_FULLSCREEN, enable, true);
     }
 }
 
@@ -79,7 +87,10 @@ class FullscreenButton extends AbstractButton<Props, *> {
  * @returns {Props}
  */
 function _mapStateToProps(state): Object {
+    const { fullscreen } = state['features/toolbox'];
+
     return {
+        _fullScreen: fullscreen,
         visible: true
     };
 }

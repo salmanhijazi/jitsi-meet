@@ -64,7 +64,7 @@ const styles = {
      */
     toolbar: {
         alignItems: 'center',
-        backgroundColor: ColorPalette.darkBackground,
+        backgroundColor: 'none',
         borderRadius: 3,
         flexDirection: 'row',
         flexGrow: 0,

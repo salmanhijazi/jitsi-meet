@@ -13,7 +13,8 @@ import {
     SET_TOOLBOX_TIMEOUT,
     SET_TOOLBOX_TIMEOUT_MS,
     SET_TOOLBOX_VISIBLE,
-    TOGGLE_TOOLBOX_VISIBLE
+    TOGGLE_TOOLBOX_VISIBLE,
+    TOGGLE_FULLSCREEN
 } from './actionTypes';
 
 declare var interfaceConfig: Object;
@@ -74,6 +75,13 @@ function _getInitialState() {
         enabled: true,
 
         /**
+         * The indicator which determines whether fullscreen is enabled.
+         *
+         * @type {boolean}
+         */
+        fullscreen: false,
+
+        /**
          * The indicator which determines whether a Toolbar in the Toolbox is
          * hovered.
          *
@@ -131,6 +139,12 @@ ReducerRegistry.register(
             };
 
         case FULL_SCREEN_CHANGED:
+            return {
+                ...state,
+                fullScreen: action.fullScreen
+            };
+
+        case TOGGLE_FULLSCREEN:
             return {
                 ...state,
                 fullScreen: action.fullScreen

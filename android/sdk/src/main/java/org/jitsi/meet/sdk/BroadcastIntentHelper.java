@@ -41,9 +41,9 @@ public class BroadcastIntentHelper {
         return intent;
     }
 
-    public static Intent buildToggleFullscreen(boolean enabled) {
+    public static Intent buildToggleFullscreen(boolean fullscreen) {
         Intent intent = new Intent(BroadcastAction.Type.TOGGLE_FULLSCREEN.getAction());
-        intent.putExtra("enabled", enabled);
+        intent.putExtra("fullscreen", fullscreen);
         return intent;
     }
 }

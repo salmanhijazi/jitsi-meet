@@ -196,8 +196,8 @@ RCT_EXPORT_METHOD(sendEvent:(NSString *)name
     [self sendEventWithName:sendChatMessageAction body:data];
 }
 
-- (void)toggleFullscreen:(BOOL)enabled {
-    NSDictionary *data = @{ @"enabled": [NSNumber numberWithBool:enabled]};
+- (void)toggleFullscreen:(BOOL)fullscreen {
+    NSDictionary *data = @{ @"fullscreen": [NSNumber numberWithBool:fullscreen]};
 
     [self sendEventWithName:toggleFullscreenAction body:data];
 }
