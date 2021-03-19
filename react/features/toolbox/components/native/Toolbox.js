@@ -70,10 +70,10 @@ class Toolbox extends PureComponent<Props> {
                 accessibilityRole = 'toolbar'
                 pointerEvents = 'box-none'
                 style = { styles.toolbar }>
-                <FullscreenButton
+                <OverflowMenuButton
                     styles = { buttonStylesBorderless }
                     toggledStyles = { toggledButtonStyles } />
-                <OverflowMenuButton
+                <FullscreenButton
                     styles = { buttonStylesBorderless }
                     toggledStyles = { toggledButtonStyles } />
             </View>
