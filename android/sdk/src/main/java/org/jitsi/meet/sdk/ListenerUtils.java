@@ -159,7 +159,15 @@ public final class ListenerUtils {
                 i.hasNextKey();) {
             String key = i.nextKey();
 
-            hashMap.put(key, readableMap.getString(key));
+            ReadableType type = readableMap.getType(key);
+            switch(type) {
+                case Boolean:
+                    hashMap.put(key, readableMap.getBoolean(key));
+                    break;
+
+                default:
+                    hashMap.put(key, readableMap.getString(key));
+            }
         }
 
         return hashMap;
