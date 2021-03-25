@@ -114,15 +114,6 @@ class Filmstrip extends Component<Props> {
                             && <LocalThumbnail />
                     }
                     {
-
-                        this._sort(_participants, isNarrowAspectRatio)
-                            .map(p => (
-                                <Thumbnail
-                                    key = { p.id }
-                                    participant = { p } />))
-
-                    }
-                    {
                         !this._separateLocalThumbnail && isNarrowAspectRatio
                             && <LocalThumbnail />
                     }
