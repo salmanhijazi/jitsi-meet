@@ -196,23 +196,26 @@ public abstract class BaseReactView<ListenerT>
         }
     }
 
+
     /**
-     * Called when the window containing this view gains or loses focus.
-     *
-     * @param hasFocus If the window of this view now has focus, {@code true};
-     * otherwise, {@code false}.
-     */
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
+        CHANGED by Syed Hashir Ali
+       * Called when the window containing this view gains or loses focus.
+       *
+       * @param hasFocus If the window of this view now has focus, {@code true};
+       * otherwise, {@code false}.
 
-        // https://github.com/mockingbot/react-native-immersive#restore-immersive-state
-        RNImmersiveModule immersive = RNImmersiveModule.getInstance();
+      @Override
+      public void onWindowFocusChanged(boolean hasFocus) {
+          super.onWindowFocusChanged(hasFocus);
 
-        if (hasFocus && immersive != null) {
-            immersive.emitImmersiveStateChangeEvent();
-        }
-    }
+          // https://github.com/mockingbot/react-native-immersive#restore-immersive-state
+          RNImmersiveModule immersive = RNImmersiveModule.getInstance();
+
+          if (hasFocus && immersive != null) {
+              immersive.emitImmersiveStateChangeEvent();
+          }
+      }
+    */
 
     /**
      * Sets a specific listener on this {@code BaseReactView}.
